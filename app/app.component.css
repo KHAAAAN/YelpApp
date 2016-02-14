@@ -16,3 +16,27 @@
 	font-weight: bold;
 	color: #FFFFFF;
 }
+
+#location-form{
+	position:absolute;
+	left:40%;
+	width: 400px;
+	border-style: solid;
+	border-width: thin;
+	border-radius: 3px;
+	padding: 0px 40px 10px 40px;
+	border-color: #2D66A2;
+	margin-top: 50px;
+}
+
+#demographic-form{
+	position:absolute;
+	left: 40%;
+	width:400px;
+	border-style: solid;
+	border-width: thin;
+	border-radius: 3px;
+	padding: 0px 40px 10px 40px;
+	border-color: #2D66A2;
+	margin-top: 380px;
+}

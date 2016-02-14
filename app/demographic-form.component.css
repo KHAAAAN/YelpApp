@@ -1,0 +1,27 @@
+h1,h2{
+	font-weight: bold;
+}
+
+.age-distribution td{
+	font-size: 18px;
+}
+
+.age-distribution table{
+	width: 100%;
+	text-align: center;
+	background-color: #E6E8EC;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.age-distribution th{
+	color: #663399;
+	padding-left: 15px;
+}
+
+div {
+	padding-bottom: 15px;
+	width: 100%;
+}
+
+
