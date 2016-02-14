@@ -1,0 +1,23 @@
+<div class="container" style="width:500px;">
+	<h1>Select Location</h1>
+	<form>
+
+		<div class="form-group" style="width:150px;">
+				<label for="state">State</label>
+				<select class="form-control" required>
+					<option *ngFor="#state of states" [value]="state">{{state}}</option>
+				</select>
+		</div>
+
+		<div class="form-group">
+				<label for="city">City</label>
+				<input type="text" class="form-control"/>
+		</div>
+		
+		<div class="form-group">
+				<label for="zipcode">Zipcode</label>
+				<input type="text" class="form-control"/>
+		</div>
+
+	</form>
+</div>
