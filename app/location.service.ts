@@ -8,11 +8,11 @@ export class LocationService {
   constructor (private http: Http) {}
 
   //private _locationUrl = 'app/states.json';
-	private _locationUrl = 'http://localhost:4000/states.json';	
+	private _locationUrl = 'http://localhost:4000/states';	
 
   getStates () {
     return this.http.get(this._locationUrl)
-                    .map(res => <Location[]> res.json().data)
+                    .map(res => <string[]> res.json().data)
 					.do(data =>console.log(data)) //eyeball results in the console
                     .catch(this.handleError);
   }

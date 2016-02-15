@@ -14,7 +14,6 @@ export class LocationFormComponent {
 	public states: string[];
 	public submitted = false;
 	public locationModel = new Location();
-	public locations: Location[];
 	errorMessage: string;
 		
 	constructor(private _locationService: LocationService){}
@@ -22,7 +21,7 @@ export class LocationFormComponent {
 	getStates(){
 		this._locationService.getStates()
 			.subscribe(
-				locations => this.locations = locations,
+				states => this.states = states,
 				error => this.errorMessage = <any>error);	
 	}
 	

@@ -1,6 +1,16 @@
 var express = require("express");
 var app = express();
 var cors = require('cors');
+var mysql = require('mysql2');
+var connection = mysql.createConnection({
+	user: 'user',
+	password: 'pass', 
+	//From MySQL command line:
+	//CREATE USER 'user'@'localhost' IDENTIFIED BY 'pass';
+	//GRANT ALL PRIVILEGES ON * . * TO 'user'@'localhost';
+
+	database: 'Milestone1DB'
+});
 
 app.use(cors());
 
@@ -10,19 +20,27 @@ app.get('/', function(req, res, next) {
 	//res.sendfile(__dirname + "/index.html");
 });
 
-app.get('/states.json', function(req, res) {
+app.get('/states', function(req, res) {
 	
-	res.contentType('application/json');	
+	console.log("GET request to states has been acknowledged tun tun tunnn\n"); 
+	connection.query('SELECT DISTINCT state FROM CensusData ORDER BY state', function(err, rows){
+		console.log(rows);
+			res.contentType('application/json');	
+			
+			var stateStrings = [];
+			
+			for(var i = 0; i < rows.length; i++){
+				stateStrings.push(rows[i]["state"]);
+			}
 
-	var states = { 
-		data : [
-			{state : "YOLOSWAG", city: "TEST2", zipcode : "1001"},
-			{state : "BOSWAGGY", city: "TEST4", zipcode : "1002"}
-		] 
-	}; 
+			var states = { 
+				data : stateStrings
+			}; 
 
-	var statesJSON = JSON.stringify(states);
-	res.send(statesJSON);
+			var statesJSON = JSON.stringify(states);
+			res.send(statesJSON);
+	});
+
 });
 
 
