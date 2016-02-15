@@ -7,7 +7,8 @@ import {Location} from './location';
 export class LocationService {
   constructor (private http: Http) {}
 
-  private _locationUrl = 'app/states.json';
+  //private _locationUrl = 'app/states.json';
+	private _locationUrl = 'http://localhost:4000/states.json';	
 
   getStates () {
     return this.http.get(this._locationUrl)

@@ -21,14 +21,9 @@ export class LocationFormComponent {
 	
 	getStates(){
 		this._locationService.getStates()
-			.then(
+			.subscribe(
 				locations => this.locations = locations,
-				error => this.errorMessage = <any>error,
-				console.log(this.locations));
-
-		/*console.log(this.locations);
-		console.log(this.errorMessage);*/
-		
+				error => this.errorMessage = <any>error);	
 	}
 	
 	ngOnInit() { this.getStates(); }

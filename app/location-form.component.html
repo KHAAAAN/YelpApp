@@ -6,7 +6,7 @@
 		<select class="form-control select-state" required
 				[(ngModel)]="locationModel.state">
 
-			<option *ngFor="#state of states" [value]="state">{{state}}</option>
+			<option *ngFor="#location of locations" [value]="location.state">{{location.state}}</option>
 		</select>
 
 </div>
