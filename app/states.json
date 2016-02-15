@@ -1,0 +1,6 @@
+{
+	"data" : [
+		{"state" : "TEST1", "city": "TEST2", "zipcode" : "1001"},
+		{"state" : "TEST3", "city": "TEST4", "zipcode" : "1002"}
+	]
+}
