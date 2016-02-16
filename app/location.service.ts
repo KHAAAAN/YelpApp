@@ -29,6 +29,20 @@ export class LocationService {
 		.catch(this.handleError);
   }
 
+  getZipcodes(state: string, city: string){	
+	let params: URLSearchParams = new URLSearchParams();
+	params.set('state', state);
+	params.set('city', city);
+
+		return this.http.get(this._locationUrl + 'zipcodes', {
+			search:params
+		})
+		.toPromise()
+		.then(res => <string[]> res.json().data)
+		//.do(data => console.log(data))
+		.catch(this.handleError);
+  }
+
   private handleError (error: Response) {
     // in a real world app, we may send the server to some remote logging infrastructure
     // instead of just logging it to the console

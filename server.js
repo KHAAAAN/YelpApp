@@ -12,6 +12,8 @@ var connection = mysql.createConnection({
 	database: 'Milestone1DB'
 });
 
+connection.config.namedPlaceholders = true;
+
 app.use(cors());
 
 app.get('/', function(req, res, next) {
@@ -24,7 +26,7 @@ app.get('/states', function(req, res) {
 	
 	console.log("GET request to states has been acknowledged tun tun tunnn\n"); 
 	connection.query('SELECT DISTINCT state FROM CensusData ORDER BY state', function(err, rows){
-		console.log(rows);
+		//console.log(rows);
 			res.contentType('application/json');	
 			
 			var stateStrings = [];
@@ -44,13 +46,55 @@ app.get('/states', function(req, res) {
 });
 
 app.get('/cities', function(req, res) {
-	console.log(req.query);
-	var cities = {
-		data : ["pris", "work", "seresry"]
-	};
+
+	console.log("GET request to cities has been acknowledged tun tun tunnn\n");
+	//console.log(req.query["state"]);	
+	var query = 'SELECT DISTINCT city FROM CensusData WHERE state= \'' + req.query["state"] + '\' ORDER BY CITY';
+	//console.log(query);
+	connection.query(query, function(err, rows){
+			var cityStrings = [];
+			
+			for(var i = 0; i < rows.length; i++){
+				cityStrings.push(rows[i]["city"]);
+			}
+
+			var cities = {
+				data : cityStrings
+			};
+
+			var citiesJSON = JSON.stringify(cities);
+			
+			//console.log(citiesJSON);	
+
+			res.send(citiesJSON);
+	});
 	
-	var citiesJSON = JSON.stringify(cities);
-	res.send(citiesJSON);
+});
+
+app.get('/zipcodes', function(req, res) {
+	console.log("GET request to zipcodes has been acknowledged tun tun tunnn\n");
+	console.log(req.query);
+	var query = 'SELECT zipcode FROM CensusData WHERE city= \'' + req.query["city"] + 
+			'\' AND state= \'' + req.query["state"] + '\' ORDER BY zipcode';
+	
+	console.log(query);
+	connection.query(query, function(err, rows){
+		var zipcodeStrings = [];
+		console.log(rows);
+		for(var i = 0; i < rows.length; i++){
+			zipcodeStrings.push(rows[i]["zipcode"]);
+		}
+
+		var zipcodes = { 
+				data : zipcodeStrings
+		};
+
+		var zipcodesJSON = JSON.stringify(zipcodes);
+		
+		console.log(zipcodesJSON);
+		res.send(zipcodesJSON);
+	});	
+
 });
 
 

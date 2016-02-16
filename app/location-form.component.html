@@ -6,27 +6,27 @@
 		<select class="form-control select-state" required
 				>
 
-			<option (click)="getCities($event)" *ngFor="#state of states" [value]="state">{{state}}</option>
+			<option (click)="setCurrentState($event)"
+			(click)="getCities($event)" *ngFor="#state of states" [value]="state">{{state}}</option>
 		</select>
 
 </div>
 
 <div class="form-group">
 		<label for="city">City</label>
-		<select class="form-control" required
-				[(ngModel)]="locationModel.city">
+		<select class="form-control" required>
 
-    		<option> </option>
-			<!--option *ngFor="#state of states" [value]="state">{{state}}</option-->
+			<option (click)="setCurrentCity($event)"
+			(click)="getZipcodes($event)" *ngFor="#city of cities" [value]="city"> {{city}} </option>
 		</select>
 </div>
 
 <div class="form-group">
 		<label for="zipcode">Zipcode</label>
-		<select class="form-control" required
-				[(ngModel)]="locationModel.zipcode">
+		<select class="form-control" required>
 
-			<!--option *ngFor="#state of states" [value]="state">{{state}}</option-->
+			<option (click)="setCurrentZipcode($event)"
+			*ngFor="#zipcode of zipcodes" [value]="zipcode">{{zipcode}}</option>
 		</select>
 </div>
 

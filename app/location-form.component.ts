@@ -1,6 +1,4 @@
 import {Component, OnInit}	from 'angular2/core';
-//import {STATES}		from './states';
-//import {NgForm}		from 'angular2/common';
 import {Location}	from './location';
 import {LocationService} from './location.service';
 
@@ -10,15 +8,28 @@ import {LocationService} from './location.service';
 })
 
 export class LocationFormComponent {
-	public stateTest = "stateTest";	
+	
 	public states: string[];
 	public cities: string[];
-	public submitted = false;
+	public zipcodes: string[];
+	
 	public locationModel = new Location();
+
 	errorMessage: string;
 		
 	constructor(private _locationService: LocationService){}
 	
+	setCurrentState(event){
+		this.locationModel.state = event["target"]["label"];
+	}	
+	
+	setCurrentCity(event){
+		this.locationModel.city = event["target"]["label"];
+	}	
+	
+	setCurrentZipcode(event){
+		this.locationModel.zipcode = event["target"]["label"];
+	}	
 
 	getStates(){
 		this._locationService.getStates()
@@ -28,6 +39,7 @@ export class LocationFormComponent {
 	}
 
 	getCities(event){
+		location
 		this._locationService.getCities(event["target"]["label"])
 			.then(
 				cities => this.cities = cities,
@@ -35,10 +47,15 @@ export class LocationFormComponent {
 				);
 
 	}
+
+	getZipcodes(event){
+		this._locationService.getZipcodes(this.locationModel.state, event["target"]["label"])
+		.then(
+			zipcodes => this.zipcodes = zipcodes,
+			error => this.errorMessage = <any> error
+		);	
+	}
 	
 	ngOnInit() { this.getStates(); }
 
-	public onSubmit() { 
-			this.submitted = true; 
-	}
 }
