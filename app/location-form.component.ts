@@ -12,6 +12,7 @@ import {LocationService} from './location.service';
 export class LocationFormComponent {
 		
 	public states: string[];
+	public cities: string[];
 	public submitted = false;
 	public locationModel = new Location();
 	errorMessage: string;
@@ -23,6 +24,15 @@ export class LocationFormComponent {
 			.subscribe(
 				states => this.states = states,
 				error => this.errorMessage = <any>error);	
+	}
+
+	getCities(){
+		this._locationService.getCities()
+			.then(
+				cities => this.cities = cities,
+				error => this.errorMessage = <any> error
+				);
+
 	}
 	
 	ngOnInit() { this.getStates(); }

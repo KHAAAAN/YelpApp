@@ -4,9 +4,11 @@
 <div class="form-group">
 		<label for="state">State</label>
 		<select class="form-control select-state" required
-				[(ngModel)]="locationModel.state">
+				[(ngModel)]="locationModel.state"
+				(change) = "getCities();"
+				>
 
-			<option *ngFor="#state of states" [value]="state">{{state}}</option>
+			<option  *ngFor="#state of states" [value]="state">{{state}}</option>
 		</select>
 
 </div>
@@ -16,6 +18,7 @@
 		<select class="form-control" required
 				[(ngModel)]="locationModel.city">
 
+    		<option> </option>
 			<!--option *ngFor="#state of states" [value]="state">{{state}}</option-->
 		</select>
 </div>

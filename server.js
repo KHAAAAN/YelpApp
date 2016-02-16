@@ -43,6 +43,16 @@ app.get('/states', function(req, res) {
 
 });
 
+app.get('/cities', function(req, res) {
+	console.log(req.query);
+	var cities = {
+		data : ["pris", "work", "seresry"]
+	};
+	
+	var citiesJSON = JSON.stringify(cities);
+	res.send(citiesJSON);
+});
+
 
 
 app.listen(4000, function () {
