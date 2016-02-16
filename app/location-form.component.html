@@ -3,7 +3,7 @@
 
 <div class="form-group">
 		<label for="state">State</label>
-		<select class="form-control select-state" required
+		<select class="form-control select-state" required (change)="resetCityZipcode()"
 				>
 
 			<option (click)="setCurrentState($event)"

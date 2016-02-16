@@ -19,6 +19,12 @@ export class LocationFormComponent {
 		
 	constructor(private _locationService: LocationService){}
 	
+	resetCityZipcode(){
+		this.zipcodes=[];
+		this.cities=[];
+		console.log("test");
+	}
+
 	setCurrentState(event){
 		this.locationModel.state = event["target"]["label"];
 	}	
