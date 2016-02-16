@@ -159,7 +159,7 @@ namespace parse_yelp
         /* Extract review information*/
         public string ProcessUsers(JsonObject my_jsonStr)
         {
-            return ProcessJson(my_jsonStr, new List<string> { "friends,", "compliments", "elite" });
+            return ProcessJson(my_jsonStr, new List<string> { "friends", "compliments", "elite" });
         }
 
 
