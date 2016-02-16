@@ -10,6 +10,7 @@ import {LocationService} from './location.service';
 })
 
 export class LocationFormComponent {
+	public stateTest = "stateTest";	
 	public states: string[];
 	public cities: string[];
 	public submitted = false;
@@ -18,6 +19,7 @@ export class LocationFormComponent {
 		
 	constructor(private _locationService: LocationService){}
 	
+
 	getStates(){
 		this._locationService.getStates()
 			.subscribe(
@@ -25,8 +27,8 @@ export class LocationFormComponent {
 				error => this.errorMessage = <any>error);	
 	}
 
-	getCities(state : string){
-		this._locationService.getCities(state)
+	getCities(event){
+		this._locationService.getCities(event["target"]["label"])
 			.then(
 				cities => this.cities = cities,
 				error => this.errorMessage = <any> error
