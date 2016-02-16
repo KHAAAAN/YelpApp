@@ -5,7 +5,7 @@
 		<label for="state">State</label>
 		<select class="form-control select-state" required
 				[(ngModel)]="locationModel.state"
-				(change) = "getCities();"
+				(change) = "getCities(locationModel.state)"
 				>
 
 			<option  *ngFor="#state of states" [value]="state">{{state}}</option>

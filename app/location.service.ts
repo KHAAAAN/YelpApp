@@ -17,9 +17,9 @@ export class LocationService {
                     .catch(this.handleError);
   }
 
-  getCities(){
+  getCities(state: string){
 			let params: URLSearchParams = new URLSearchParams();
-			params.set('state', 'work');
+			params.set('state', state);
 		return this.http.get(this._locationUrl + 'cities', {
 			search:params
 		})

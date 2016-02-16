@@ -10,7 +10,6 @@ import {LocationService} from './location.service';
 })
 
 export class LocationFormComponent {
-		
 	public states: string[];
 	public cities: string[];
 	public submitted = false;
@@ -26,8 +25,8 @@ export class LocationFormComponent {
 				error => this.errorMessage = <any>error);	
 	}
 
-	getCities(){
-		this._locationService.getCities()
+	getCities(state : string){
+		this._locationService.getCities(state)
 			.then(
 				cities => this.cities = cities,
 				error => this.errorMessage = <any> error
