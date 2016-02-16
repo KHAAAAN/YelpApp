@@ -1,0 +1,3 @@
+To add the sql database from bash
+
+mysql -u username -p -D dbname < tableName.sql
