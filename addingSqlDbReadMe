@@ -1,4 +1,8 @@
-To add the sql database from bash
+To export table from db
+
+mysqldump -u username -p db_name table1  > table_backup.sql
+
+To add the sql table to database from bash
 
 From MySQL command line:
 CREATE USER 'user'@'localhost' IDENTIFIED BY 'pass';
