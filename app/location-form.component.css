@@ -6,3 +6,19 @@ h1{
 select.select-state {
 	width: 150px;
 }
+
+#location{
+	width:400px;
+}
+
+#demographic-form{
+	/*position:absolute;*/
+	border-style: solid;
+	border-width: thin;
+	border-radius: 3px;
+	padding: 0px 40px 10px 40px;
+	border-color: #2D66A2;
+	margin-top: 50px;
+}
+
+

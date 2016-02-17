@@ -1,17 +1,17 @@
 <h1>Demographics</h1>
-<h2>Summary</h2>
-<div class="input-group">
+<h2 *ngIf="demographicModel">Summary</h2>
+<div class="input-group" *ngIf="demographicModel">
 	<label for="population">Population</label>
-	<input type="text" class="form-control" readonly>
+	<input type="text" [value]="demographicModel.population" class="form-control" readonly>
 </div>
 	
-<div class="input-group avgerage-inc">
+<div class="input-group avgerage-inc" *ngIf="demographicModel">
 		<label for="average-income">Average Income</label>
-		<input type="text" class="form-control" readonly>	
+		<input type="text" [value]="demographicModel.avg_income" class="form-control" readonly>	
 </div>
 
 
-<div class="age-distribution">
+<div class="age-distribution" *ngIf="demographicModel">
 		<table class="table-hover" border="1" style="width:300px;">	
 			<tr>
 				<th>Age Group</th>	
@@ -20,34 +20,34 @@
 
 			<tr>
 				<td>Under 18 years</td>
-				<td></td>	
+				<td [innerHTML]="demographicModel.ageUnder18"></td>	
 			</tr>
 
 			<tr>
 				<td>18 to 24 years</td>
-				<td></td>
+				<td [innerHTML]="demographicModel.age18_to_24"></td>
 			</tr>
 
 			<tr>
 				<td>25 to 44 years</td>
-				<td></td>
+				<td [innerHTML]="demographicModel.age25_to_44"></td>
 			</tr>
 
 			<tr>
 				<td>44 to 64 years</td>
-				<td></td>
+				<td [innerHTML]="demographicModel.age45_to_64"></td>
 			</tr>
 
 			<tr>
 				<td>65 and over</td>
-				<td></td>
+				<td [innerHTML]="demographicModel.age65_and_over"></td>
 			</tr>
 
 		</table>	
 </div>
 
-<div class="input-group">			
+<div class="input-group" *ngIf="demographicModel">			
 		<label for="median-age">Median Age</label>
-		<input type="text" class="form-control" readonly>	
+		<input type="text" [value]="demographicModel.median_age" class="form-control" readonly>	
 </div>
 

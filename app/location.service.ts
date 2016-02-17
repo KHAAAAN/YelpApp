@@ -2,6 +2,7 @@ import {Injectable} from 'angular2/core';
 import {Http, Response, URLSearchParams} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import {Location} from './location';
+import {Demographic} from './demographic';
 
 @Injectable()
 export class LocationService {
@@ -25,7 +26,7 @@ export class LocationService {
 		})
 		.toPromise()
 		.then(res => <string[]> res.json().data)
-		//.do(data => console.log(data))
+		//.do(data => console.log(data)) //only works with observable
 		.catch(this.handleError);
   }
 
@@ -41,6 +42,18 @@ export class LocationService {
 		.then(res => <string[]> res.json().data)
 		//.do(data => console.log(data))
 		.catch(this.handleError);
+  }
+
+  getDemographics(zipcode: string){
+	let params: URLSearchParams = new URLSearchParams();
+	params.set('zipcode', zipcode);
+
+	return this.http.get(this._locationUrl + 'demographics', {
+		search:params
+	})
+	.toPromise()
+	.then(res => <Demographic> res.json().data)
+	.catch(this.handleError);		
   }
 
   private handleError (error: Response) {

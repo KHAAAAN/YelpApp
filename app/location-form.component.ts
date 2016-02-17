@@ -2,9 +2,13 @@ import {Component, OnInit}	from 'angular2/core';
 import {Location}	from './location';
 import {LocationService} from './location.service';
 
+import {Demographic} from './demographic';
+import {DemographicFormComponent} from './demographic-form.component';
+
 @Component({
 	selector: 'location-form',
-	templateUrl:'app/location-form.component.html', styleUrls: ['app/location-form.component.css']
+	templateUrl:'app/location-form.component.html', styleUrls: ['app/location-form.component.css'],
+	directives: [DemographicFormComponent]
 })
 
 export class LocationFormComponent {
@@ -12,7 +16,8 @@ export class LocationFormComponent {
 	public states: string[];
 	public cities: string[];
 	public zipcodes: string[];
-	
+	public demographic: Demographic;
+
 	public locationModel = new Location();
 
 	errorMessage: string;
@@ -22,7 +27,6 @@ export class LocationFormComponent {
 	resetCityZipcode(){
 		this.zipcodes=[];
 		this.cities=[];
-		console.log("test");
 	}
 
 	setCurrentState(event){
@@ -60,6 +64,14 @@ export class LocationFormComponent {
 			zipcodes => this.zipcodes = zipcodes,
 			error => this.errorMessage = <any> error
 		);	
+	}
+
+	getDemographics(event){
+		this._locationService.getDemographics(event["target"]["label"])
+		.then(
+			demographic => this.demographic = demographic,
+			error => this.errorMessage = <any> error
+		);		
 	}
 	
 	ngOnInit() { this.getStates(); }

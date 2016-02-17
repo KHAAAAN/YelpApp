@@ -1,3 +1,7 @@
 To add the sql database from bash
 
+From MySQL command line:
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'pass';
+GRANT ALL PRIVILEGES ON * . * TO 'user'@'localhost;
+
 mysql -u username -p -D dbname < tableName.sql

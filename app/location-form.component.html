@@ -1,4 +1,6 @@
+<div id="location">
 <h1>Select Location</h1>
+
 <form>
 
 <div class="form-group">
@@ -26,8 +28,14 @@
 		<select class="form-control" required>
 
 			<option (click)="setCurrentZipcode($event)"
+			(click)="getDemographics($event)" 
 			*ngFor="#zipcode of zipcodes" [value]="zipcode">{{zipcode}}</option>
 		</select>
 </div>
 
 </form>
+</div>
+
+<div id="demographic-form">
+	<demographic-form [demographicModel]="demographic"> </demographic-form>
+</div>

@@ -1,4 +1,5 @@
 #main-navigation{
+	z-index: 100;
 	width:100%;
 	height: 40px;
 	background-color: rgba(0, 0, 0, 0.8);
@@ -21,22 +22,6 @@
 	position:absolute;
 	left:40%;
 	width: 400px;
-	border-style: solid;
-	border-width: thin;
-	border-radius: 3px;
-	padding: 0px 40px 10px 40px;
-	border-color: #2D66A2;
 	margin-top: 50px;
 }
 
-#demographic-form{
-	position:absolute;
-	left: 40%;
-	width:400px;
-	border-style: solid;
-	border-width: thin;
-	border-radius: 3px;
-	padding: 0px 40px 10px 40px;
-	border-color: #2D66A2;
-	margin-top: 380px;
-}
