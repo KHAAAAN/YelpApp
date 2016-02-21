@@ -6,7 +6,7 @@ import {LocationService} from './location.service';
 
 @Component({
 	selector: 'yelp-app',
-	
+
 	templateUrl: 'app/app.component.html',
 	styleUrls: ['app/app.component.css'],
 	directives: [LocationFormComponent],
@@ -14,5 +14,4 @@ import {LocationService} from './location.service';
 })
 
 export class AppComponent {
-	public title = 'Yelp App';
 }

@@ -29,16 +29,20 @@ export class LocationFormComponent {
 		this.cities=[];
 	}
 
+	resetDemographic(){
+		this.demographic = null;
+	}
+
 	setCurrentState(event){
-		this.locationModel.state = event["target"]["label"];
+		this.locationModel.state = event["target"]["value"];
 	}
 
 	setCurrentCity(event){
-		this.locationModel.city = event["target"]["label"];
+		this.locationModel.city = event["target"]["value"];
 	}
 
 	setCurrentZipcode(event){
-		this.locationModel.zipcode = event["target"]["label"];
+		this.locationModel.zipcode = event["target"]["value"];
 	}
 
 	getStates(){
@@ -49,7 +53,7 @@ export class LocationFormComponent {
 	}
 
 	getCities(event){
-		this._locationService.getCities(event["target"]["label"])
+		this._locationService.getCities(event["target"]["value"])
 			.then(
 				cities => this.cities = cities,
 				error => this.errorMessage = <any> error
@@ -58,7 +62,7 @@ export class LocationFormComponent {
 	}
 
 	getZipcodes(event){
-		this._locationService.getZipcodes(this.locationModel.state, event["target"]["label"])
+		this._locationService.getZipcodes(this.locationModel.state, event["target"]["value"])
 		.then(
 			zipcodes => this.zipcodes = zipcodes,
 			error => this.errorMessage = <any> error
@@ -66,7 +70,8 @@ export class LocationFormComponent {
 	}
 
 	getDemographics(event){
-		this._locationService.getDemographics(event["target"]["label"])
+		console.log(event["target"]["value"]);
+		this._locationService.getDemographics(event["target"]["value"])
 		.then(
 			demographic => this.demographic = demographic,
 			error => this.errorMessage = <any> error
