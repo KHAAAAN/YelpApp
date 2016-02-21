@@ -1,4 +1,4 @@
-<div id="location">
+div id="location">
 <h1>Select Location</h1>
 
 <form>
@@ -8,8 +8,12 @@
 		<select class="form-control select-state" required (change)="resetCityZipcode()"
 				>
 
-			<option (click)="setCurrentState($event)"
-			(click)="getCities($event)" *ngFor="#state of states" [value]="state">{{state}}</option>
+			<option
+
+			<!-- (click)="setCurrentState($event)"
+			(click)="getCities($event)" -->
+
+			*ngFor="#state of states" [value]="state">{{state}}</option>
 		</select>
 
 </div>
@@ -28,7 +32,7 @@
 		<select class="form-control" required>
 
 			<option (click)="setCurrentZipcode($event)"
-			(click)="getDemographics($event)" 
+			(click)="getDemographics($event)"
 			*ngFor="#zipcode of zipcodes" [value]="zipcode">{{zipcode}}</option>
 		</select>
 </div>

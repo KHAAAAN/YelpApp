@@ -9,12 +9,12 @@ export class LocationService {
   constructor (private http: Http) {}
 
   //private _locationUrl = 'app/states.json';
-	private _locationUrl = 'http://localhost:4000/';	 
+	private _locationUrl = 'http://localhost:4000/';
 
   getStates () {
     return this.http.get(this._locationUrl + 'states')
                     .map(res => <string[]> res.json().data)
-					.do(data =>console.log(data)) //eyeball results in the console
+					          .do(data =>console.log(data)) //eyeball results in the console
                     .catch(this.handleError);
   }
 
@@ -30,7 +30,7 @@ export class LocationService {
 		.catch(this.handleError);
   }
 
-  getZipcodes(state: string, city: string){	
+  getZipcodes(state: string, city: string){
 	let params: URLSearchParams = new URLSearchParams();
 	params.set('state', state);
 	params.set('city', city);
@@ -53,7 +53,7 @@ export class LocationService {
 	})
 	.toPromise()
 	.then(res => <Demographic> res.json().data)
-	.catch(this.handleError);		
+	.catch(this.handleError);
   }
 
   private handleError (error: Response) {
@@ -63,4 +63,3 @@ export class LocationService {
     return Observable.throw(error.json().error || 'Server error');
   }
 }
-

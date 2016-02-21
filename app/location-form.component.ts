@@ -12,7 +12,7 @@ import {DemographicFormComponent} from './demographic-form.component';
 })
 
 export class LocationFormComponent {
-	
+
 	public states: string[];
 	public cities: string[];
 	public zipcodes: string[];
@@ -21,9 +21,9 @@ export class LocationFormComponent {
 	public locationModel = new Location();
 
 	errorMessage: string;
-		
+
 	constructor(private _locationService: LocationService){}
-	
+
 	resetCityZipcode(){
 		this.zipcodes=[];
 		this.cities=[];
@@ -31,25 +31,24 @@ export class LocationFormComponent {
 
 	setCurrentState(event){
 		this.locationModel.state = event["target"]["label"];
-	}	
-	
+	}
+
 	setCurrentCity(event){
 		this.locationModel.city = event["target"]["label"];
-	}	
-	
+	}
+
 	setCurrentZipcode(event){
 		this.locationModel.zipcode = event["target"]["label"];
-	}	
+	}
 
 	getStates(){
 		this._locationService.getStates()
 			.subscribe(
 				states => this.states = states,
-				error => this.errorMessage = <any>error);	
+				error => this.errorMessage = <any>error);
 	}
 
 	getCities(event){
-		location
 		this._locationService.getCities(event["target"]["label"])
 			.then(
 				cities => this.cities = cities,
@@ -63,7 +62,7 @@ export class LocationFormComponent {
 		.then(
 			zipcodes => this.zipcodes = zipcodes,
 			error => this.errorMessage = <any> error
-		);	
+		);
 	}
 
 	getDemographics(event){
@@ -71,9 +70,9 @@ export class LocationFormComponent {
 		.then(
 			demographic => this.demographic = demographic,
 			error => this.errorMessage = <any> error
-		);		
+		);
 	}
-	
+
 	ngOnInit() { this.getStates(); }
 
 }
