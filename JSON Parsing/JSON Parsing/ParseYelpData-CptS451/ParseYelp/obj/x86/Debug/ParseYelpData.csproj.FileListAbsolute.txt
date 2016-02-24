@@ -1,9 +1,0 @@
-C:\Users\Keegan\Documents\Git\451\YelpApp\JSON Parsing\ParseYelpData-CptS451\ParseYelp\obj\x86\Debug\ParseYelpData.csprojResolveAssemblyReference.cache
-C:\Users\Keegan\Documents\Git\451\YelpApp\JSON Parsing\ParseYelpData-CptS451\ParseYelp\obj\x86\Debug\parse_yelp.Properties.Resources.resources
-C:\Users\Keegan\Documents\Git\451\YelpApp\JSON Parsing\ParseYelpData-CptS451\ParseYelp\obj\x86\Debug\ParseYelpData.csproj.GenerateResource.Cache
-C:\Users\Keegan\Documents\Git\451\YelpApp\JSON Parsing\ParseYelpData-CptS451\ParseYelp\bin\Debug\parse_yelp.exe
-C:\Users\Keegan\Documents\Git\451\YelpApp\JSON Parsing\ParseYelpData-CptS451\ParseYelp\bin\Debug\parse_yelp.pdb
-C:\Users\Keegan\Documents\Git\451\YelpApp\JSON Parsing\ParseYelpData-CptS451\ParseYelp\bin\Debug\System.Json.dll
-C:\Users\Keegan\Documents\Git\451\YelpApp\JSON Parsing\ParseYelpData-CptS451\ParseYelp\bin\Debug\System.Json.xml
-C:\Users\Keegan\Documents\Git\451\YelpApp\JSON Parsing\ParseYelpData-CptS451\ParseYelp\obj\x86\Debug\parse_yelp.exe
-C:\Users\Keegan\Documents\Git\451\YelpApp\JSON Parsing\ParseYelpData-CptS451\ParseYelp\obj\x86\Debug\parse_yelp.pdb
