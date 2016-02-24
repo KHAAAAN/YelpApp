@@ -24,9 +24,13 @@ export class LocationFormComponent {
 
 	constructor(private _locationService: LocationService){}
 
-	resetCityZipcode(){
-		this.zipcodes=[];
+	resetCity(){
+		
 		this.cities=[];
+	}
+
+	resetZipcode(){
+		this.zipcodes=[];
 	}
 
 	resetDemographic(){
@@ -55,7 +59,9 @@ export class LocationFormComponent {
 	getCities(event){
 		this._locationService.getCities(event["target"]["value"])
 			.then(
-				cities => this.cities = cities,
+				cities => {
+						this.cities = cities;
+				},
 				error => this.errorMessage = <any> error
 				);
 
@@ -78,6 +84,6 @@ export class LocationFormComponent {
 		);
 	}
 
-	ngOnInit() { this.getStates(); }
+	ngOnInit() { this.getStates();}
 
 }
