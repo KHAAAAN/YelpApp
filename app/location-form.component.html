@@ -7,12 +7,13 @@
 		<label for="state">State</label>
 		<select class="form-control select-state" required
 
-		(change)="resetCityZipcode()"
+		(change)="resetCity()"
+		(change)="resetZipcode()"
 		(change)="setCurrentState($event)"
 		(change)="getCities($event)"
 		(change)="resetDemographic()"
 		>
-			<option disabled selected>--select a state--</option>
+			<option selected>--select a state--</option>
 			<option *ngFor="#state of states" [value]="state">{{state}}</option>
 		</select>
 
@@ -27,7 +28,7 @@
 		(change)="resetDemographic()"
 		>
 
-			<option disabled selected>--select a city--</option>
+			<option selected>--select a city--</option>
 			<option *ngFor="#city of cities" [value]="city"> {{city}} </option>
 		</select>
 </div>
@@ -41,7 +42,7 @@
 
 		>
 
-			<option disabled selected>--select a zipcode--</option>
+			<option selected>--select a zipcode--</option>
 			<option *ngFor="#zipcode of zipcodes" [value]="zipcode">{{zipcode}}</option>
 		</select>
 </div>
