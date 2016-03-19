@@ -1,11 +1,11 @@
 {
   "name": "YelpApp",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
-    "start": "concurrent \"node server.js\" \"npm run tsc:w\"  \"npm run lite\" "
+    "start": "concurrent \"./server.sh\" \"npm run tsc:w\" "
   },
   "license": "ISC",
   "dependencies": {

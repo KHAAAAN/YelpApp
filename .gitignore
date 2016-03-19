@@ -28,4 +28,6 @@ node_modules
 #for you. 
 *.js
 *.js.map
+*.swp
 !server.js
+http-server
