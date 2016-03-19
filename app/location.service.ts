@@ -24,8 +24,7 @@ export class LocationService {
 		return this.http.get(this._locationUrl + 'cities', {
 			search:params
 		})
-		.toPromise()
-		.then(res => <string[]> res.json().data)
+		.map(res => <string[]> res.json().data)
 		//.do(data => console.log(data)) //only works with observable
 		.catch(this.handleError);
   }
@@ -38,8 +37,7 @@ export class LocationService {
 		return this.http.get(this._locationUrl + 'zipcodes', {
 			search:params
 		})
-		.toPromise()
-		.then(res => <string[]> res.json().data)
+		.map(res => <string[]> res.json().data)
 		//.do(data => console.log(data))
 		.catch(this.handleError);
   }
@@ -51,8 +49,7 @@ export class LocationService {
 	return this.http.get(this._locationUrl + 'demographics', {
 		search:params
 	})
-	.toPromise()
-	.then(res => <Demographic> res.json().data)
+	.map(res => <Demographic> res.json().data)
 	.catch(this.handleError);
   }
 

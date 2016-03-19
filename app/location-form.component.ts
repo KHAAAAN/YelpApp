@@ -11,7 +11,7 @@ import {DemographicFormComponent} from './demographic-form.component';
 	directives: [DemographicFormComponent]
 })
 
-export class LocationFormComponent {
+export class LocationFormComponent implements OnInit {
 
 	public states: string[];
 	public cities: string[];
@@ -58,7 +58,7 @@ export class LocationFormComponent {
 
 	getCities(event){
 		this._locationService.getCities(event["target"]["value"])
-			.then(
+			.subscribe(
 				cities => {
 						this.cities = cities;
 				},
@@ -69,7 +69,7 @@ export class LocationFormComponent {
 
 	getZipcodes(event){
 		this._locationService.getZipcodes(this.locationModel.state, event["target"]["value"])
-		.then(
+		.subscribe(
 			zipcodes => this.zipcodes = zipcodes,
 			error => this.errorMessage = <any> error
 		);
@@ -78,7 +78,7 @@ export class LocationFormComponent {
 	getDemographics(event){
 		console.log(event["target"]["value"]);
 		this._locationService.getDemographics(event["target"]["value"])
-		.then(
+		.subscribe(
 			demographic => this.demographic = demographic,
 			error => this.errorMessage = <any> error
 		);
