@@ -14,7 +14,6 @@ export class LocationService {
   getStates () {
     return this.http.get(this._locationUrl + 'states')
                     .map(res => <string[]> res.json().data)
-					          .do(data =>console.log(data)) //eyeball results in the console
                     .catch(this.handleError);
   }
 

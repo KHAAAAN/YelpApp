@@ -1,7 +1,28 @@
-<div style="padding-bottom:25px;">
-		<nav id="main-navigation"><a>Business Demographics</a></nav>
-</div>
+<nav class="navbar navbar-default navbar-fixed-top">
 
-<div id="location-form">
-		<location-form> </location-form>
-</div>
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+			</button>
+		</div>	
+
+		 <div style="border:0;" class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li>
+					<a [class.isFocused]="isFocused1" [style.background]="bg1" [style.color]="color1" (click)="focus1()" [routerLink]="['LocationForm']">Business Demographics</a>
+				</li>
+
+				<li>
+					<a [class.isFocused]="isFocused2" [style.background]="bg2" [style.color]="color2"(click)="focus2()" [routerLink]="['BusinessSearch']">Business Search</a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+
+</nav>
+
+<router-outlet></router-outlet>

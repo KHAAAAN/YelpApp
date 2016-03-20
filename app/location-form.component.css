@@ -20,3 +20,11 @@ select.select-state {
 	border-color: #2D66A2;
 	margin-top: 50px;
 }
+
+#location-form{
+	position:absolute;
+	left:40%;
+	width: 400px;
+	margin-top: 50px;
+}
+

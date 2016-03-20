@@ -17,6 +17,11 @@ func handler(w http.ResponseWriter, r *http.Request){
 	fmt.Println(r.URL.Path[1:])
 }
 
+func refreshHandler(w http.ResponseWriter, r*http.Request){
+	http.ServeFile(w, r, "index.html")
+	fmt.Println("browser refresh.")
+}
+
 func statesHandler(w http.ResponseWriter, r *http.Request, db *sql.DB){
 	fmt.Println("GET request to states has been acknowledged");
 	rows, err := db.Query("SELECT DISTINCT state FROM CensusData ORDER BY state")
@@ -178,7 +183,6 @@ func demographicsHandler(w http.ResponseWriter, r *http.Request, db *sql.DB){
 		field := reflect.Indirect(ref).FieldByName(s[i])
 
 		if s[i] == "avg_income" || s[i] == "median_age"{
-			fmt.Println(field.Float())
 			v := field.Float()
 			str := strconv.FormatFloat(v, 'f', -1, 64)
 			buffer.WriteString("\"" + s[i] + "\"" + ":" + "\"" + str + "\"")
@@ -230,6 +234,9 @@ func main() {
 	http.HandleFunc("/demographics", func(w http.ResponseWriter, r *http.Request){
 		demographicsHandler(w, r, db);
 	})
+
+	//handle refresh requests
+	http.HandleFunc("/business_demographics", refreshHandler)
 
 	fmt.Println("Listening on 3000")
 	http.ListenAndServe(":3000", nil)

@@ -1,5 +1,6 @@
 <html>
   <head>
+	<base href="/">
     <title>Yelp App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">    
 
@@ -16,6 +17,8 @@
 
 	<script src="node_modules/angular2/bundles/router.dev.js"></script>
 	<script src="node_modules/angular2/bundles/http.dev.js"></script>
+
+	<link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css"> 
 
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"></script>
 	<script src="node_modules/jquery/dist/jquery.min.js"></script> <!-- this jquery is for bootstrapping only. -->
@@ -53,7 +56,15 @@
 
   <!-- 3. Display the application -->
   <body>
-    <yelp-app>Loading...</yelp-app>
+    <yelp-app>	
+		<i style="color: red; margin-left: 10px; margin-top: 10px;  position:absolute; top: 0; font-size:100px;" class="fa fa-cog fa-spin"></i>
+		<i style="color: orange; margin-top: 10px; margin-left: 150px; top:0;  position:absolute;  font-size:100px;" class="fa fa-cog fa-spin"></i>
+		<i style="color: yellow; margin-top: 10px; margin-left: 300px; top:0;  position:absolute;  font-size:100px;" class="fa fa-cog fa-spin"></i>
+		<i style="color: green; margin-top: 10px; margin-left: 450px; top:0;  position:absolute;  font-size:100px;" class="fa fa-cog fa-spin"></i>
+		<i style="color: blue; margin-top: 10px; margin-left: 600px; top:0;  position:absolute;  font-size:100px;" class="fa fa-cog fa-spin"></i>
+		<i style="color: indigo; margin-top: 10px; margin-left: 750px; top:0;  position:absolute;  font-size:100px;" class="fa fa-cog fa-spin"></i>
+		<i style="color: violet; margin-top: 10px; margin-left: 900px; top:0;  position:absolute;  font-size:100px;" class="fa fa-cog fa-spin"></i>
+	</yelp-app>
   </body>
 
 </html>

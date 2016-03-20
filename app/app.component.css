@@ -14,14 +14,38 @@
 	position: relative;
 	top: 8;
 	font-size:18px;
-	font-weight: bold;
 	color: #FFFFFF;
+	text-decoration: none;
 }
 
-#location-form{
-	position:absolute;
-	left:40%;
-	width: 400px;
-	margin-top: 50px;
+
+.navbar{
+	background-color: rgba(0, 0, 0, 0.78);
+	border: 0;
+	border-radius: 0;
+}
+
+.navbar-toggle{
+	border:0;
+}
+
+ul.navbar-nav li a{
+	color: white;
+}
+
+/*not working TODO: fix*/
+ul.navbar-nav li a:hover{
+	color: #6DB3F2;
+}
+
+/*ul.navbar-nav li a:focus{
+	color: #6DB3F2;
+	font-weight: bold;
+	background: black;
+}*/
+
+.isFocused{
+	color: #6DB3F2;
+	font-weight: bold;
 }
 

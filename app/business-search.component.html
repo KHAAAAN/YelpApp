@@ -1,0 +1,44 @@
+<div class="container">
+	<div id="one" class="form-group">
+		<h1>Select Business</h1>
+		<label for="business-category">Category</label>
+		<select class="form-control bc" required
+		>
+			<option selected>--business category--</option>
+			<!--option ngFor="#state of states" [value]="state"></option-->
+
+		</select>
+
+		<button class="btn btn-md btn-primary btn-block">Add Category</button>
+
+		<ul id="added-categories">
+			<li *ngFor="#addedCat of addedCats">
+				{{addedCat}}
+			</li>
+		</ul>
+	</div>
+
+	<div id="two">
+		<h1>Select Attribute</h1>
+		<ul id="attribute-box">
+			<!--li *ngFor="#attr of attrs">
+				<i style="cursor: pointer;" (click)="expand(attr)" *ngIf="attr.list.length > 0 && attr.expanded === false" class="fa fa-plus-square"></i>
+				<i style="cursor: pointer;" (click)="implode(attr)" *ngIf="attr.list.length > 0 && attr.expanded === true" class="fa fa-minus-square-o"></i>
+				{{attr.name}}
+
+				<ul *ngIf="attr.expanded" style="list-style-type: none;">
+					<li *ngFor="#item of attr.list">
+						{{item}}	
+					</li>
+				</ul>
+
+			</li-->
+
+			<li *ngFor="#item of numbers; #i=index">
+				<list-item [value]="'attribute' + (i+1)" [listItems]="listItems">
+				</list-item>
+			</li>
+
+		</ul>
+	</div>
+</div>

@@ -1,55 +1,57 @@
-<div id="location">
-<h1>Select Location</h1>
+<div id="location-form">
+	<div id="location">
+	<h1>Select Location</h1>
 
-<form>
+	<form>
 
-<div class="form-group">
-		<label for="state">State</label>
-		<select class="form-control select-state" required
+	<div class="form-group">
+			<label for="state">State</label>
+			<select class="form-control select-state" required
 
-		(change)="resetCity()"
-		(change)="resetZipcode()"
-		(change)="setCurrentState($event)"
-		(change)="getCities($event)"
-		(change)="resetDemographic()"
-		>
-			<option selected>--select a state--</option>
-			<option *ngFor="#state of states" [value]="state">{{state}}</option>
-		</select>
+			(change)="resetCity()"
+			(change)="resetZipcode()"
+			(change)="setCurrentState($event)"
+			(change)="getCities($event)"
+			(change)="resetDemographic()"
+			>
+				<option selected>--select a state--</option>
+				<option *ngFor="#state of states" [value]="state">{{state}}</option>
+			</select>
 
-</div>
+	</div>
 
-<div class="form-group">
-		<label for="city">City</label>
-		<select class="form-control" required
+	<div class="form-group">
+			<label for="city">City</label>
+			<select class="form-control" required
 
-		(change)="setCurrentCity($event)"
-		(change)="getZipcodes($event)"
-		(change)="resetDemographic()"
-		>
+			(change)="setCurrentCity($event)"
+			(change)="getZipcodes($event)"
+			(change)="resetDemographic()"
+			>
 
-			<option selected>--select a city--</option>
-			<option *ngFor="#city of cities" [value]="city"> {{city}} </option>
-		</select>
-</div>
+				<option selected>--select a city--</option>
+				<option *ngFor="#city of cities" [value]="city"> {{city}} </option>
+			</select>
+	</div>
 
-<div class="form-group">
-		<label for="zipcode">Zipcode</label>
-		<select class="form-control" required
+	<div class="form-group">
+			<label for="zipcode">Zipcode</label>
+			<select class="form-control" required
 
-		(change)="setCurrentZipcode($event)"
-		(change)="getDemographics($event)"
+			(change)="setCurrentZipcode($event)"
+			(change)="getDemographics($event)"
 
-		>
+			>
 
-			<option selected>--select a zipcode--</option>
-			<option *ngFor="#zipcode of zipcodes" [value]="zipcode">{{zipcode}}</option>
-		</select>
-</div>
+				<option selected>--select a zipcode--</option>
+				<option *ngFor="#zipcode of zipcodes" [value]="zipcode">{{zipcode}}</option>
+			</select>
+	</div>
 
-</form>
-</div>
+	</form>
+	</div>
 
-<div id="demographic-form">
-	<demographic-form [demographicModel]="demographic"> </demographic-form>
+	<div id="demographic-form">
+		<demographic-form [demographicModel]="demographic"> </demographic-form>
+	</div>
 </div>
