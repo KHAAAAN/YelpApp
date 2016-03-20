@@ -33,14 +33,20 @@ CREATE TABLE Businesses (
 
 
 CREATE TABLE Attributes (
-    business_id varchar(30) REFERENCES Businesses(business_id),
     attr_name varchar(50),
     attr_value varchar(50),
+    PRIMARY KEY (attr_name, attr_value)
+)
+
+CREATE TABLE BusinessToAttributes (
+    business_id varchar(30) REFERENCES Businesses(business_id),
+    attr_name varchar(50) REFERENCES Attributes(attr_name),
+    attr_value varchar(50) REFERENCES Attributes(attr_value),
     PRIMARY KEY (business_id, attr_name)
 );
 
 
-CREATE TABLE Subattribute (
+CREATE TABLE Subattributes (
     business_id varchar(30) REFERENCES  Businesses(business_id),
     attr_name varchar(50) REFERENCES Attribute(attr_name),
     subattr_name varchar(50),
@@ -50,9 +56,19 @@ CREATE TABLE Subattribute (
 
 
 CREATE TABLE CategoriesToBusiness (
-    category varchar(50),
-    business_id varchar(30) REFERENCES Businesses(business_id)
+    category varchar(50) REFERENCES Category(category),
+    business_id varchar(30) REFERENCES Businesses(business_id),
     PRIMARY KEY (category, business_id)
+);
+
+CREATE TABLE Category (
+    category varchar(50) PRIMARY KEY
+);
+
+CREATE TABLE AttributesToCategories (
+    attr_name varchar(50) REFERENCES Attribute(attr_name),
+    category varchar(50) REFERENCES Category(category),
+    PRIMARY KEY (attr_name, category),
 );
 
 
@@ -108,8 +124,4 @@ CREATE TABLE ReviewVotes (
     cool integer,
     PRIMARY KEY Reviews(user_id, business_id)
 );
-
-
-
-
 
