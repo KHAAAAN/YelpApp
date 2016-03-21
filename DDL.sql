@@ -76,22 +76,8 @@ CREATE TABLE Users(
     funny integer,
     useful integer,
     cool integer,
-    average_stars float
-);
-
-
-
-CREATE TABLE Friends (
-    user_id varchar(30) REFERENCES Users(user_id),
-    friend_id varchar(30) REFERENCES Users(friend_id),
-    PRIMARY KEY (user_id, friend_id)
-);
-
-
-CREATE TABLE Fans (
-    user_id varchar(30) REFERENCES Users(user_id),
-    fan_id varchar(30) REFERENCES Users(fan_id),
-    PRIMARY KEY (user_id, fan_id)
+    average_stars float,
+    fans integer
 );
 
 
