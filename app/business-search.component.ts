@@ -12,8 +12,8 @@ export class BusinessSearchComponent implements OnInit{
 	//public attrs: Expandable[];				
 	public addedCats: string[];
 	public cats: string[]; //unadded categories
-	public numbers: int[];
-	public listItems[]: ListItems;
+	public numbers: number[];
+	public listItems: ListItem[];
 
 	ngOnInit(){
 		//this.attrs = [];
@@ -28,40 +28,12 @@ export class BusinessSearchComponent implements OnInit{
 
 		var listItem = new ListItem();
 		listItem.value = "TEST";
+
+		var innerListItem = new ListItem();
+		innerListItem.value = "TEST2";
+
+		listItem.listItems.push(innerListItem);
 		this.listItems.push(listItem);
 
-		/*for(var i = 1; i <= 7; i++){
-			this.attrs.push(new Expandable("attribute"+i, []));
-		}
-
-		//FOR TESTING
-		for(var i = 0; i < 20; i++){
-			this.attrs[1].list.push("test1");
-		}
-		for(var i = 0; i < 20; i++){
-			this.attrs[3].list.push("test1");
-		}*/
 	}
-
-	/*expand(attr){
-		attr.expanded = true;	
-	}
-
-	//because i dont know the word.. my excuse is uhh:
-	//english is my 3rd language lolol fam cuz holla if you're a balla
-	implode(attr){
-		attr.expanded = false;
-	}*/
 }
-
-/*class Expandable{
-	public name: string;
-	public list: string[];
-	public expanded: boolean = false;
-
-	constructor(name, list){
-		this.name = name;
-		this.list = list;
-	}
-}*/
-

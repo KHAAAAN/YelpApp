@@ -237,6 +237,7 @@ func main() {
 
 	//handle refresh requests
 	http.HandleFunc("/business_demographics", refreshHandler)
+	http.HandleFunc("/business_search", refreshHandler)
 
 	fmt.Println("Listening on 3000")
 	http.ListenAndServe(":3000", nil)

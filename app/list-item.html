@@ -2,7 +2,7 @@
 <i style="cursor: pointer;" (click)="implode()" *ngIf="listItems.length > 0 && expanded === true" class="fa fa-minus-square-o"></i>
 {{value}}
 <ul style="list-style-type: none;" *ngIf="listItems.length > 0 && expanded === true">
-	<li *ngFor="#listItem of listItems">
+	<li style="clear:both; float: left;" *ngFor="#listItem of listItems"position>
 		<list-item [value]="listItem.value" [listItems]="listItem.listItems">
 		</list-item>
 	</li>
