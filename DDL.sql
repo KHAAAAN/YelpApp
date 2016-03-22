@@ -29,25 +29,38 @@ CREATE TABLE Businesses (
 
 
 CREATE TABLE Attributes (
-    attr_name varchar(50),
-    attr_value varchar(50),
-    PRIMARY KEY (attr_name, attr_value)
+    attr_name varchar(50) PRIMARY KEY,
+    attr_value varchar(50)
 );
+
 
 CREATE TABLE BusinessToAttributes (
     business_id varchar(30) REFERENCES Businesses(business_id),
     attr_name varchar(50) REFERENCES Attributes(attr_name),
     attr_value varchar(50) REFERENCES Attributes(attr_value),
-    PRIMARY KEY (business_id, attr_name)
+    PRIMARY KEY (business_id, attr_name, attr_value)
 );
 
 
 CREATE TABLE Subattributes (
-    business_id varchar(30) REFERENCES  Businesses(business_id),
-    attr_name varchar(50) REFERENCES Attribute(attr_name),
     subattr_name varchar(50),
     subattr_value varchar(50), 
-    PRIMARY KEY (business_id, attr_name, subattr_name)
+    PRIMARY KEY (subattr_name, subattr_value)
+);
+
+
+CREATE TABLE AttributeToSub (
+    attr_name varchar(50) REFERENCES Attributes(attr_name),
+    subattr_name varchar(50) REFERENCES Subattributes(subattr_name),
+    subattr_value varchar(50) REFERENCES Subattributes(subattr_value),
+    PRIMARY KEY (attr_name, subattr_name, subattr_value)
+);
+
+
+CREATE TABLE SubToSub (
+    parent varchar(50) REFERENCES Subattributes(parent),
+    child varchar(50) REFERENCES Subattributes(child),
+    PRIMARY KEY (parent, child)
 );
 
 
@@ -56,11 +69,13 @@ CREATE TABLE Category (
 );
 
 
-CREATE TABLE CategoriesToBusiness (
-    category varchar(50) REFERENCES Category(category),
+CREATE TABLE CategoriesToBusiness(
     business_id varchar(30) REFERENCES Businesses(business_id),
-    PRIMARY KEY (category, business_id)
+    category varchar(50) REFERENCES Category(category),
+    PRIMARY KEY(business_id, category)
 );
+
+
 
 CREATE TABLE AttributesToCategories (
     attr_name varchar(50) REFERENCES Attributes(attr_name),
@@ -82,6 +97,7 @@ CREATE TABLE Users(
 
 
 CREATE TABLE Reviews (
+    review_id varchar(30) PRIMARY KEY,
     business_id varchar(30) REFERENCES Businesses(business_id),
     user_id varchar(30) REFERENCES Users(user_id),
     stars integer,
@@ -89,6 +105,5 @@ CREATE TABLE Reviews (
     text varchar(253),
     funny integer,
     useful integer,
-    cool integer,
-    PRIMARY KEY (business_id, user_id)
+    cool integer
 );
