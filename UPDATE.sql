@@ -9,4 +9,4 @@ set B.stars = (SELECT AVG(R.stars)
 UPDATE Businesses B
 set B.review_count = (SELECT COUNT(*)
                       FROM Reviews R 
-                      Where R.business_id = B.business_id;
+                      Where R.business_id = B.business_id);
