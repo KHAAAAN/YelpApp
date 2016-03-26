@@ -1,5 +1,8 @@
+USE MS2;
 
-CREATE TRIGGER updateStarsAndReviewCountOnInsert BEFORE INSERT ON Review
+delimiter //
+
+CREATE TRIGGER updateStarsAndReviewCountOnInsert BEFORE INSERT ON Reviews
     FOR EACH ROW 
     BEGIN
         UPDATE Businesses SET review_count = review_count + 1 WHERE business_id = NEW.business_id;
@@ -10,9 +13,14 @@ CREATE TRIGGER updateStarsAndReviewCountOnInsert BEFORE INSERT ON Review
                                             FROM REVIEWS R 
                                             WHERE R.business_id = B.business_id) + 1;
                                            
-    END;
+    END;//
     
-CREATE TRIGGER updateStarsAndReviewCountOnDelete BEFORE DELETE ON Review
+delimiter ;
+
+
+delimiter //
+    
+CREATE TRIGGER updateStarsAndReviewCountOnDelete BEFORE DELETE ON Reviews
 FOR EACH ROW 
 BEGIN
     UPDATE Businesses SET review_count = review_count - 1 WHERE business_id = OLD.business_id;
@@ -23,14 +31,21 @@ BEGIN
                                         FROM REVIEWS R 
                                         WHERE R.business_id = B.business_id) - 1);
                                        
-END;
+END;//
 
-CREATE TRIGGER OpenOnly BEFORE Insert ON Review
+delimiter ;
+
+delimiter //
+
+CREATE TRIGGER OpenOnly BEFORE Insert ON Reviews
 FOR EACH ROW 
 BEGIN
     IF true <> (SELECT open
                 FROM Businesses B
                 WHERE R.business_id = B.business_id)
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = "An error occured";
+	THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'An error occured';
     END IF;
-END;
+END;//
+
+delimiter ;
